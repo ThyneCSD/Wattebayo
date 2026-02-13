@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMouse : MonoBehaviour
 {
+    [SerializeField] private AudioSource balloonHitSound;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -12,7 +13,8 @@ public class PlayerMouse : MonoBehaviour
 
             if (hit.collider != null && hit.collider.CompareTag("Balloon"))
             {
-                Destroy(hit.collider.gameObject);
+                hit.collider.GetComponent<MoveBalloon>().health--;
+                balloonHitSound.Play();
             }
         }
     }
