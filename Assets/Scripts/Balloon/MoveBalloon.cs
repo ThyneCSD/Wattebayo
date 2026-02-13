@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MoveBalloon : MonoBehaviour
 {
+    [SerializeField] private float moveSpeed = 2f;
     void Start()
     {
         
@@ -9,6 +10,6 @@ public class MoveBalloon : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.Translate(Vector3.up * Time.deltaTime);
+        gameObject.transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
     }
 }
