@@ -63,12 +63,12 @@ public class BallMovement : MonoBehaviour
             
             if (currentAngle >= 30 && currentAngle <= 150)
             {
-                transform.rotation = Quaternion.Euler(0, 0, currentAngle - 10);
+                transform.rotation = Quaternion.Euler(0, 0, Random.Range(-100, -150));
                 Debug.Log("Collided with a wall");
             }
             else if (currentAngle >= -150 && currentAngle <= -30)
             {
-                gameObject.transform.rotation = Quaternion.Euler(0, 0, -currentAngle + 10);
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, Random.Range(100, 150));
                 Debug.Log("Collided with a wall");
             }
         }
