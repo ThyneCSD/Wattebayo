@@ -14,7 +14,9 @@ public class MoveBalloon : MonoBehaviour
         gameObject.transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
         CheckDeath();
         //sum missing here... can you find out what?
-        if (transform.position.y >= maxHeight)
+        //nah im good
+
+        if (gameObject.transform.position.y >= maxHeight)
         {
             PlayerStats scm = FindAnyObjectByType<PlayerStats>();
             scm.health--;
@@ -37,6 +39,7 @@ public class MoveBalloon : MonoBehaviour
     {
         if (health <= 0)
         {
+
             Destroy(gameObject);
             //pointSystem.points += pointValue;
 
