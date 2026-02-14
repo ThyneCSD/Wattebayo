@@ -1,11 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveBalloon : MonoBehaviour
 {
     public int health = 5;
     public int pointValue = 1;
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float maxHeight = 10f;
+    [SerializeField] private float maxHeight = 8f;
 
     void Update()
     {
@@ -13,15 +15,25 @@ public class MoveBalloon : MonoBehaviour
         CheckDeath();
         if (transform.position.y >= maxHeight)
         {
+            PlayerStats scm = FindAnyObjectByType<PlayerStats>();
+            scm.health--;
             Destroy(gameObject);
-            //dmg doen aan de speler hier.
+            
         }
+
+        
     }
+
+    
 
     private void OnDestroy()
     {
-        PointSystem pointSystem = FindAnyObjectByType<PointSystem>();
-        pointSystem.points += pointValue;
+        if (gameObject.transform.position.y <= 6)
+        {
+            PointSystem pointSystem = FindAnyObjectByType<PointSystem>();
+            pointSystem.points += pointValue;
+        }
+        
     }
 
 

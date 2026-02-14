@@ -504,7 +504,7 @@ MonoBehaviour:
   - {fileID: 654090630}
   - {fileID: 503378502}
   spawnInterval: 1.067
-  levelDuration: 1
+  levelDuration: 1000
   levelFinished: 0
 --- !u!1 &503378502
 GameObject:
